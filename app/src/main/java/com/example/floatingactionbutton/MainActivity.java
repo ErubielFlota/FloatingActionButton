@@ -12,8 +12,10 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 
+import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
 
 
 
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }*/
 
- /* Animacion
+ /* Animacion de el boton que al precionarlo gire
 
 final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setScaleX(0);
@@ -79,7 +81,7 @@ final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         });
 */
 
-
+/*
         boolean click = false;
 
         @Override
@@ -105,13 +107,53 @@ final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
                                 .start();
                     }
                 }
-            });
+            });*/
+
+        private FABToolbarLayout morph;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activity_main);
+
+
+                FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+                morph = (FABToolbarLayout) findViewById(R.id.fabtoolbar);
+
+                View uno, dos, tres, cuatro;
+
+                uno = findViewById(R.id.uno);
+                dos = findViewById(R.id.dos);
+                cuatro = findViewById(R.id.cuatro);
+                tres = findViewById(R.id.tres);
+
+                fab.setOnClickListener(this);
+                uno.setOnClickListener(this);
+                dos.setOnClickListener(this);
+                tres.setOnClickListener(this);
+                cuatro.setOnClickListener(this);
+        }
+
+
+        @Override
+        public void onClick(View v) {
+                if (v.getId() == R.id.fab) {
+                        morph.show();
+                }
+
+                morph.hide();
         }
 
 
 
 
-    }
+
+        }
+
+
+
+
+
 
 
 

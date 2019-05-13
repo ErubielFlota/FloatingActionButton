@@ -15,10 +15,7 @@ import android.view.animation.Interpolator;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
 
 /*
         FloatingActionButton fab=(FloatingActionButton) findViewById(R.id.fab);
@@ -29,7 +26,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }*/
-        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+ /* Animacion
+
+final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setScaleX(0);
         fab.setScaleY(0);
 
@@ -77,6 +77,37 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Se presionó el FAB", Snackbar.LENGTH_LONG).show();
             }
         });
+*/
+
+
+        boolean click = false;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState){
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+
+
+            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+            fab.setImageResource(R.drawable.plus);
+
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    click=!click;
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                        Interpolator interpolador = AnimationUtils.loadInterpolator(getBaseContext(),
+                                android.R.interpolator.fast_out_slow_in);
+
+                        view.animate()
+                                .rotation(click ? 45f : 0)
+                                .setInterpolator(interpolador)
+                                .start();
+                    }
+                }
+            });
+        }
+
 
 
 
@@ -84,6 +115,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-}
+
 
 

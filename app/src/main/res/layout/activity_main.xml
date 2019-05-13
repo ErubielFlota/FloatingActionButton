@@ -51,10 +51,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="16dp"
-        android:src="?attr/actionModeShareDrawable"
+        android:src="@drawable/plus"
         app:layout_anchor="@+id/contenedor_detalle_item"
-        app:layout_anchorGravity="top|end"
-        />
+        app:layout_anchorGravity="top|end" />
 
 
 

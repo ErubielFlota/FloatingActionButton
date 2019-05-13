@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-/*
+/*Hacer que al precionar el fab muestre un snackbar con un texto
         FloatingActionButton fab=(FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }*/
 
- /* Animacion de el boton que al precionarlo gire
+ /* Animacion de escala el en botton flotante
 
 final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setScaleX(0);
@@ -81,7 +81,7 @@ final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         });
 */
 
-/*
+/*Animacion de el boton que al precionarlo gire
         boolean click = false;
 
         @Override

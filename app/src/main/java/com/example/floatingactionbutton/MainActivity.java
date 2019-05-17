@@ -18,21 +18,21 @@ import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-       private FloatingActionsMenu FAM;
+       private FloatingActionsMenu fab;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.activity_main);
 
-                FAM = (FloatingActionsMenu) findViewById (R.id.menu_fab);
+                fab = (FloatingActionsMenu) findViewById (R.id.menu);
 
                 View uno,dos,tres;
                 uno =  findViewById(R.id.accion_favorito);
                 dos =  findViewById(R.id.accion_buscar);
                 tres =  findViewById(R.id.accion_favorito);
 
-                FAM.setOnClickListener(this);
+                fab.setOnClickListener(this);
                 uno.setOnClickListener(this);
                 dos.setOnClickListener(this);
                 tres.setOnClickListener(this);
@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         @Override
         public void onClick(View v) {
-                if (v.getId() == R.id.menu_fab) {
-                        FAM.setEnabled(true);
+                if (v.getId() == R.id.menu) {
+                        fab.setEnabled(true);
                 }
 
         }

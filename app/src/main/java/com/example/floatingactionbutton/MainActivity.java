@@ -12,14 +12,50 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
+import com.github.clans.fab.FloatingActionMenu;
 import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+       private FloatingActionsMenu FAM;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activity_main);
+
+                FAM = (FloatingActionsMenu) findViewById (R.id.menu_fab);
+
+                View uno,dos,tres;
+                uno =  findViewById(R.id.accion_favorito);
+                dos =  findViewById(R.id.accion_buscar);
+                tres =  findViewById(R.id.accion_favorito);
+
+                FAM.setOnClickListener(this);
+                uno.setOnClickListener(this);
+                dos.setOnClickListener(this);
+                tres.setOnClickListener(this);
+
+        }
+        @Override
+        public void onClick(View v) {
+                if (v.getId() == R.id.menu_fab) {
+                        FAM.setEnabled(true);
+                }
+
+        }
 
 
 
-/*Hacer que al precionar el fab muestre un snackbar con un texto
+
+//Hacer que al precionar el fab muestre un snackbar con un texto
+
+   /* @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
         FloatingActionButton fab=(FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Snackbar.make(view, "Se presionó el FAB", Snackbar.LENGTH_LONG).setAction("Action",null).show();
             }
         });
-    }*/
+    }
 
  /* Animacion de escala el en botton flotante
 
@@ -109,7 +145,10 @@ final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
                 }
             });*/
 
+        /* Esto es para combertir el fab en toolbar
+
         private FABToolbarLayout morph;
+
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -143,7 +182,7 @@ final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
                 morph.hide();
         }
-
+ */
 
 
 
